@@ -5,7 +5,7 @@ export default function sketch(p) {
 
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight)
-    p.frameRate(10)
+    p.frameRate(15)
     p.background(255)
 
     ca = new CA(p)
