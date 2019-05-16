@@ -4,7 +4,7 @@ export default function sketch(p) {
   let ca
 
   p.setup = function() {
-    p.createCanvas(640, 360)
+    p.createCanvas(p.windowWidth, p.windowHeight)
     p.frameRate(10)
     p.background(255)
 
@@ -19,5 +19,9 @@ export default function sketch(p) {
       p.background(255)
       ca.resetProps(p)
     }
+  }
+
+  p.windowResized = function() {
+    p.resizeCanvas(p.windowWidth, p.windowHeight)
   }
 }
