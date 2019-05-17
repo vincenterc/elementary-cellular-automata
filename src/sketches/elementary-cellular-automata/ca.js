@@ -10,9 +10,6 @@ class CA {
     this.generation = 0
     this.rule = Math.floor(p.random(0, 255))
     this.ruleSet = this.ruleToRuleSet(this.rule)
-
-    console.log('rule: ', this.rule)
-    console.log('rule set: ', this.ruleSet)
   }
 
   generate() {
