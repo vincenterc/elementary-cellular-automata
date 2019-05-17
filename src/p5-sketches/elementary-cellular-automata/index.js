@@ -2,6 +2,11 @@ import CA from './ca'
 
 export default function sketch(p) {
   let ca
+  let setCARuleToRedux
+
+  p.setSketchProps = props => {
+    if (props.setCARuleToRedux) setCARuleToRedux = props.setCARuleToRedux
+  }
 
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight)
@@ -9,6 +14,7 @@ export default function sketch(p) {
     p.background(255)
 
     ca = new CA(p)
+    p.ca = ca
   }
 
   p.draw = function() {
@@ -18,6 +24,7 @@ export default function sketch(p) {
     } else {
       p.background(255)
       ca.resetProps(p)
+      setCARuleToRedux(ca.rule)
     }
   }
 

@@ -1,2 +1,4 @@
 import { combineReducers } from 'redux'
-export default combineReducers({})
+import elementaryCA from './elementary-ca'
+
+export default combineReducers({ elementaryCA })

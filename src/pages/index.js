@@ -1,16 +1,49 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import styled from 'styled-components'
+import actionCreators from '../action-creators'
 import PageWrapper from '../components/page-wrapper'
+import Controls from '../components/controls'
 import P5Wrapper from '../components/p5-wrapper'
-import elementaryCASketch from '../sketches/elementary-cellular-automata'
+import elementaryCASketch from '../p5-sketches/elementary-cellular-automata'
 
 class HomePage extends React.Component {
+  componentDidMount() {
+    let { setElementaryCARule } = this.props
+    setElementaryCARule(this.elementaryCAP5Wrapper.p5Instance.ca.rule)
+  }
+
   render() {
+    let { setElementaryCARule } = this.props
+
     return (
-      <div>
-        <P5Wrapper sketch={elementaryCASketch} />
-      </div>
+      <Wrapper>
+        <Controls
+          extraCss={`
+            position: absolute;
+            top: 10px;
+            left: 15px;
+          `}
+        />
+        <P5Wrapper
+          sketch={elementaryCASketch}
+          setCARuleToRedux={setElementaryCARule}
+          ref={elementaryCAP5Wrapper =>
+            (this.elementaryCAP5Wrapper = elementaryCAP5Wrapper)
+          }
+        />
+      </Wrapper>
     )
   }
 }
 
-export default PageWrapper(HomePage)
+const Wrapper = styled.div`
+  position: relative;
+`
+
+export default PageWrapper(
+  connect(
+    null,
+    actionCreators
+  )(HomePage)
+)
