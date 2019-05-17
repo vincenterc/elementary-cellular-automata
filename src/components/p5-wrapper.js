@@ -1,10 +1,12 @@
 import React from 'react'
-import p5 from 'p5'
 
 class P5Wrapper extends React.Component {
   componentDidMount() {
+    // hack to import p5 because SSR
+    this.p5 = require('p5')
+
     let { sketch } = this.props
-    this.p5 = new p5(sketch, this.wrapper)
+    this.p5Instance = new this.p5(sketch, this.wrapper)
   }
 
   render() {
