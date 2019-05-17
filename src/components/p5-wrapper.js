@@ -7,6 +7,9 @@ class P5Wrapper extends React.Component {
 
     let { sketch } = this.props
     this.p5Instance = new this.p5(sketch, this.wrapper)
+    if (this.p5Instance.setSketchProps) {
+      this.p5Instance.setSketchProps(this.props)
+    }
   }
 
   render() {
