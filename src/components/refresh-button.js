@@ -1,25 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-import RefreshButton from './refresh-button'
-import RuleInput from './rule-input'
+import { Refresh } from './icons'
 
-class Controls extends React.Component {
+class RefreshButton extends React.Component {
   render() {
     let { extraCss } = this.props
 
     return (
       <Wrapper extraCss={extraCss}>
-        <RefreshButton extraCss={`margin-right: 5px;`} />
-        <RuleInput />
+        <Refresh size={20} />
       </Wrapper>
     )
   }
 }
 
 const Wrapper = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ccc;
   display: flex;
+  justify-content: center;
   align-items: center;
   ${props => props.extraCss}
 `
 
-export default Controls
+export default RefreshButton
