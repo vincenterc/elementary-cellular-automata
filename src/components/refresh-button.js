@@ -4,10 +4,10 @@ import { Refresh } from './icons'
 
 class RefreshButton extends React.Component {
   render() {
-    let { extraCss } = this.props
+    let { extraCss, onClick } = this.props
 
     return (
-      <Wrapper extraCss={extraCss}>
+      <Wrapper extraCss={extraCss} onClick={onClick}>
         <Refresh size={20} />
       </Wrapper>
     )

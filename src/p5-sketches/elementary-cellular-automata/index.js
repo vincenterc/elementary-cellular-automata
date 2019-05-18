@@ -8,6 +8,12 @@ export default function sketch(p) {
     if (props.setCARuleToRedux) setCARuleToRedux = props.setCARuleToRedux
   }
 
+  p.refreshSketch = () => {
+    p.background(255)
+    ca.resetProps(p)
+    setCARuleToRedux(ca.rule)
+  }
+
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight)
     p.frameRate(15)
@@ -22,9 +28,7 @@ export default function sketch(p) {
     if (ca.generation < Math.floor(p.height / ca.w)) {
       ca.generate()
     } else {
-      p.background(255)
-      ca.resetProps(p)
-      setCARuleToRedux(ca.rule)
+      p.refreshSketch()
     }
   }
 

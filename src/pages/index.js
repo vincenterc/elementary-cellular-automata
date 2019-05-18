@@ -9,8 +9,11 @@ import elementaryCASketch from '../p5-sketches/elementary-cellular-automata'
 
 class HomePage extends React.Component {
   componentDidMount() {
-    let { setElementaryCARule } = this.props
+    let { setElementaryCARule, setRefreshElementaryCASketch } = this.props
     setElementaryCARule(this.elementaryCAP5Wrapper.p5Instance.ca.rule)
+    setRefreshElementaryCASketch(
+      this.elementaryCAP5Wrapper.p5Instance.refreshSketch
+    )
   }
 
   render() {

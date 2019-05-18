@@ -1,7 +1,11 @@
-import { SET_ELEMENTARY_CA_RULE } from './action-types'
+import {
+  SET_ELEMENTARY_CA_RULE,
+  SET_REFRESH_ELEMENTARY_CA_SKETCH,
+} from './action-types'
 
 const initialState = {
   rule: '',
+  refreshSketch: () => {},
 }
 
 export default function(state = initialState, { type, payload }) {
@@ -11,6 +15,12 @@ export default function(state = initialState, { type, payload }) {
         ...state,
         rule: payload,
       }
+    case SET_REFRESH_ELEMENTARY_CA_SKETCH: {
+      return {
+        ...state,
+        refreshSketch: payload,
+      }
+    }
     default:
       return state
   }
