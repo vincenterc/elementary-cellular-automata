@@ -1,15 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import styled from 'styled-components'
 
 class RuleInput extends React.Component {
   render() {
-    let { rule } = this.props
+    let { value } = this.props
 
     return (
       <Wrapper>
         <label>Rule</label>
-        <input disabled value={rule} />
+        <input disabled value={value} />
       </Wrapper>
     )
   }
@@ -32,9 +31,4 @@ const Wrapper = styled.div`
   }
 `
 
-export default connect(
-  state => ({
-    rule: state.elementaryCA.rule,
-  }),
-  null
-)(RuleInput)
+export default RuleInput

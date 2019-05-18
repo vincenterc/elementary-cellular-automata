@@ -6,7 +6,7 @@ import RuleInput from './rule-input'
 
 class Controls extends React.Component {
   render() {
-    let { extraCss, refreshElementaryCASketch } = this.props
+    let { extraCss, refreshElementaryCASketch, elementaryCARule } = this.props
 
     return (
       <Wrapper extraCss={extraCss}>
@@ -14,7 +14,7 @@ class Controls extends React.Component {
           extraCss={`margin-right: 5px;`}
           onClick={refreshElementaryCASketch}
         />
-        <RuleInput />
+        <RuleInput value={elementaryCARule} />
       </Wrapper>
     )
   }
@@ -29,6 +29,7 @@ const Wrapper = styled.div`
 export default connect(
   state => ({
     refreshElementaryCASketch: state.elementaryCA.refreshSketch,
+    elementaryCARule: state.elementaryCA.rule,
   }),
   null
 )(Controls)
