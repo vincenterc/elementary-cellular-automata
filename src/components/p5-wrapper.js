@@ -12,6 +12,12 @@ class P5Wrapper extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.p5Instance.setSketchProps) {
+      this.p5Instance.setSketchProps(newProps)
+    }
+  }
+
   render() {
     return <div ref={wrapper => (this.wrapper = wrapper)} />
   }
