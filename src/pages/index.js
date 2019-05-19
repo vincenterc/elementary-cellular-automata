@@ -9,15 +9,15 @@ import elementaryCASketch from '../p5-sketches/elementary-cellular-automata'
 
 class HomePage extends React.Component {
   componentDidMount() {
-    let { setElementaryCARule, setRefreshElementaryCASketch } = this.props
-    setElementaryCARule(this.elementaryCAP5Wrapper.p5Instance.ca.rule)
-    setRefreshElementaryCASketch(
-      this.elementaryCAP5Wrapper.p5Instance.refreshSketch
-    )
+    let { setElementaryCAState } = this.props
+    setElementaryCAState({
+      rule: this.elementaryCAP5Wrapper.p5Instance.ca.rule,
+      refreshSketch: this.elementaryCAP5Wrapper.p5Instance.refreshSketch,
+    })
   }
 
   render() {
-    let { setElementaryCARule } = this.props
+    let { setElementaryCAState } = this.props
 
     return (
       <Wrapper>
@@ -30,7 +30,7 @@ class HomePage extends React.Component {
         />
         <P5Wrapper
           sketch={elementaryCASketch}
-          setCARuleToRedux={setElementaryCARule}
+          setElementaryCAStateToRedux={setElementaryCAState}
           ref={elementaryCAP5Wrapper =>
             (this.elementaryCAP5Wrapper = elementaryCAP5Wrapper)
           }

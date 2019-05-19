@@ -2,16 +2,17 @@ import CA from './ca'
 
 export default function sketch(p) {
   let ca
-  let setCARuleToRedux
+  let setElementaryCAStateToRedux
 
   p.setSketchProps = props => {
-    if (props.setCARuleToRedux) setCARuleToRedux = props.setCARuleToRedux
+    if (props.setElementaryCAStateToRedux)
+      setElementaryCAStateToRedux = props.setElementaryCAStateToRedux
   }
 
   p.refreshSketch = () => {
     p.background(255)
     ca.resetProps(p)
-    setCARuleToRedux(ca.rule)
+    setElementaryCAStateToRedux({ rule: ca.rule })
   }
 
   p.setup = function() {

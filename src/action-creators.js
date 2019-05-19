@@ -6,10 +6,10 @@ export default function(dispatch) {
       dispatch({ type: actionTypes.SET_ELEMENTARY_CA_RULE, payload: rule })
     },
 
-    setRefreshElementaryCASketch: refreshSketch => {
+    setElementaryCAState: state => {
       dispatch({
-        type: actionTypes.SET_REFRESH_ELEMENTARY_CA_SKETCH,
-        payload: refreshSketch,
+        type: actionTypes.SET_ELEMENTARY_CA_STATE,
+        payload: state,
       })
     },
   }
