@@ -9,6 +9,7 @@ class RuleInput extends React.Component {
       disabled = false,
       value = '',
       onChange = () => {},
+      onKeyPress = () => {},
     } = this.props
 
     return (
@@ -21,6 +22,7 @@ class RuleInput extends React.Component {
           disabled={disabled}
           value={value}
           onChange={onChange}
+          onKeyPress={onKeyPress}
         />
       </Wrapper>
     )
