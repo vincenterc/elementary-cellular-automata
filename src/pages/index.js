@@ -13,6 +13,8 @@ class HomePage extends React.Component {
     setElementaryCAState({
       rule: this.elementaryCAP5Wrapper.p5Instance.ca.rule,
       refreshSketch: this.elementaryCAP5Wrapper.p5Instance.refreshSketch,
+      play: this.elementaryCAP5Wrapper.p5Instance.play,
+      pause: this.elementaryCAP5Wrapper.p5Instance.pause,
     })
   }
 

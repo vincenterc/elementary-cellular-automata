@@ -15,6 +15,14 @@ export default function sketch(p) {
     setElementaryCAStateToRedux({ rule: ca.rule })
   }
 
+  p.play = () => {
+    p.loop()
+  }
+
+  p.pause = () => {
+    p.noLoop()
+  }
+
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight)
     p.frameRate(15)
