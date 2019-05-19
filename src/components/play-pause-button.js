@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Play, Stop } from './icons'
+import { Play, Pause } from './icons'
 
 class PlayStopButton extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class PlayStopButton extends React.Component {
 
     return (
       <Wrapper extraCss={extraCss} onClick={onClick}>
-        {playing ? <Stop size={20} /> : <Play size={20} />}
+        {playing ? <Pause size={20} /> : <Play size={20} />}
       </Wrapper>
     )
   }
