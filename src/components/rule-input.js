@@ -3,12 +3,25 @@ import styled from 'styled-components'
 
 class RuleInput extends React.Component {
   render() {
-    let { disabled = false, value = '', onChange = () => {} } = this.props
+    let {
+      min,
+      max,
+      disabled = false,
+      value = '',
+      onChange = () => {},
+    } = this.props
 
     return (
       <Wrapper>
         <label>Rule</label>
-        <input disabled={disabled} value={value} onChange={onChange} />
+        <input
+          type="number"
+          min={min}
+          max={max}
+          disabled={disabled}
+          value={value}
+          onChange={onChange}
+        />
       </Wrapper>
     )
   }
@@ -26,7 +39,7 @@ const Wrapper = styled.div`
   }
 
   & > input {
-    width: 30px;
+    width: 45px;
     text-align: right;
   }
 `

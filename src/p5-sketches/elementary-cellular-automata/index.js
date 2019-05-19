@@ -7,7 +7,7 @@ export default function sketch(p) {
   let setElementaryCAStateToRedux
 
   p.setSketchProps = props => {
-    if (props.caRule) caRule = Number(props.caRule)
+    if (props.caRule !== undefined) caRule = validateCARule(props.caRule)
     if (props.setElementaryCAStateToRedux)
       setElementaryCAStateToRedux = props.setElementaryCAStateToRedux
   }
@@ -55,5 +55,13 @@ export default function sketch(p) {
 
   p.windowResized = function() {
     p.resizeCanvas(p.windowWidth, p.windowHeight)
+  }
+
+  function validateCARule(rule) {
+    rule = parseInt(rule)
+    if (isNaN(rule)) return caRuleBackup
+    else if (rule > 255) return 255
+    else if (rule < 0) return 0
+    return rule
   }
 }

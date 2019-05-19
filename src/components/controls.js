@@ -22,6 +22,8 @@ class Controls extends React.Component {
           onClick={this.onClickPlayPauseButton}
         />
         <RuleInput
+          min="0"
+          max="255"
           disabled={elementaryCAPlaying}
           value={elementaryCARule}
           onChange={this.onChangeRuleInput}
