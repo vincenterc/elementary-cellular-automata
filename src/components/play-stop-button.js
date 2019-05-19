@@ -8,7 +8,7 @@ class PlayStopButton extends React.Component {
 
     return (
       <Wrapper extraCss={extraCss} onClick={onClick}>
-        {playing ? <Play size={20} /> : <Stop size={20} />}
+        {playing ? <Stop size={20} /> : <Play size={20} />}
       </Wrapper>
     )
   }
