@@ -4,11 +4,11 @@ class CA {
     this.resetProps(p)
   }
 
-  resetProps(p) {
+  resetProps(p, rule = '') {
     this.cells = Array(Math.floor(p.width / this.w)).fill(0)
     this.cells[Math.floor(this.cells.length / 2)] = 1
     this.generation = 0
-    this.rule = Math.floor(p.random(0, 255))
+    this.rule = rule === '' ? Math.floor(p.random(0, 255)) : rule
     this.ruleSet = this.ruleToRuleSet(this.rule)
   }
 

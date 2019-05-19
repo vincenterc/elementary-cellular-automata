@@ -8,27 +8,32 @@ import RuleInput from './rule-input'
 
 class Controls extends React.Component {
   render() {
-    let {
-      extraCss,
-      refreshElementaryCASketch,
-      elementaryCAPlaying,
-      elementaryCARule,
-    } = this.props
+    let { extraCss, elementaryCAPlaying, elementaryCARule } = this.props
 
     return (
       <Wrapper extraCss={extraCss}>
         <RefreshButton
           extraCss={`margin-right: 5px;`}
-          onClick={refreshElementaryCASketch}
+          onClick={this.onClickRefreshButton}
         />
         <PlayPauseButton
           extraCss={`margin-right: 5px;`}
           playing={elementaryCAPlaying}
           onClick={this.onClickPlayPauseButton}
         />
-        <RuleInput value={elementaryCARule} />
+        <RuleInput
+          disabled={elementaryCAPlaying}
+          value={elementaryCARule}
+          onChange={this.onChangeRuleInput}
+        />
       </Wrapper>
     )
+  }
+
+  onClickRefreshButton = () => {
+    let { refreshElementaryCASketch } = this.props
+
+    refreshElementaryCASketch()
   }
 
   onClickPlayPauseButton = e => {
@@ -45,6 +50,12 @@ class Controls extends React.Component {
       playElementaryCA()
     }
     setElementaryCAState({ playing: !elementaryCAPlaying })
+  }
+
+  onChangeRuleInput = e => {
+    let { setElementaryCAState } = this.props
+
+    setElementaryCAState({ rule: e.target.value })
   }
 }
 

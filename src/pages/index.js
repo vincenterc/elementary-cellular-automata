@@ -19,7 +19,7 @@ class HomePage extends React.Component {
   }
 
   render() {
-    let { setElementaryCAState } = this.props
+    let { elementaryCARule, setElementaryCAState } = this.props
 
     return (
       <Wrapper>
@@ -32,6 +32,7 @@ class HomePage extends React.Component {
         />
         <P5Wrapper
           sketch={elementaryCASketch}
+          caRule={elementaryCARule}
           setElementaryCAStateToRedux={setElementaryCAState}
           ref={elementaryCAP5Wrapper =>
             (this.elementaryCAP5Wrapper = elementaryCAP5Wrapper)
@@ -48,7 +49,9 @@ const Wrapper = styled.div`
 
 export default PageWrapper(
   connect(
-    null,
+    state => ({
+      elementaryCARule: state.elementaryCA.rule,
+    }),
     actionCreators
   )(HomePage)
 )

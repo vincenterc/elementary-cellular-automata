@@ -3,12 +3,12 @@ import styled from 'styled-components'
 
 class RuleInput extends React.Component {
   render() {
-    let { value } = this.props
+    let { disabled = false, value = '', onChange = () => {} } = this.props
 
     return (
       <Wrapper>
         <label>Rule</label>
-        <input disabled value={value} />
+        <input disabled={disabled} value={value} onChange={onChange} />
       </Wrapper>
     )
   }

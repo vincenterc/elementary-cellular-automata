@@ -2,20 +2,30 @@ import CA from './ca'
 
 export default function sketch(p) {
   let ca
+  let caRule
+  let caRuleBackup
   let setElementaryCAStateToRedux
 
   p.setSketchProps = props => {
+    if (props.caRule) caRule = Number(props.caRule)
     if (props.setElementaryCAStateToRedux)
       setElementaryCAStateToRedux = props.setElementaryCAStateToRedux
   }
 
-  p.refreshSketch = () => {
+  p.refreshSketch = caRule => {
     p.background(255)
-    ca.resetProps(p)
+    ca.resetProps(p, caRule)
+    caRule = ca.rule
+    caRuleBackup = ca.rule
     setElementaryCAStateToRedux({ rule: ca.rule })
   }
 
   p.play = () => {
+    if (caRule !== caRuleBackup) {
+      caRuleBackup = caRule
+      p.refreshSketch(caRule)
+    }
+
     p.loop()
   }
 
@@ -29,6 +39,8 @@ export default function sketch(p) {
     p.background(255)
 
     ca = new CA(p)
+    caRule = ca.rule
+    caRuleBackup = ca.rule
     p.ca = ca
   }
 
