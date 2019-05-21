@@ -1,6 +1,6 @@
 {
-  "name": "elementary-cellular-automata",
-  "description": "Diagrams of elementary-cellular-automata",
+  "name": "elementary-cellular-automaton",
+  "description": "Implementation of elementary-cellular-automaton.",
   "version": "0.1.0",
   "scripts": {
     "develop": "gatsby develop",
