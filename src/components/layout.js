@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 
-import favicon from '../../assets/img/favicon.ico'
+// import favicon from '../../assets/img/favicon.ico'
 import './layout.css'
 
 class Layout extends React.Component {
@@ -12,9 +12,12 @@ class Layout extends React.Component {
     return (
       <Wrapper>
         <Helmet>
-          <title>Gatsby Starter</title>
-          <meta name="description" content="Gatsby starter..." />
-          <link rel="icon" href={favicon} />
+          <title>Elementary Cellular Automaton</title>
+          <meta
+            name="description"
+            content="The implementation of elementary cellular automaton."
+          />
+          {/* <link rel="icon" href={favicon} /> */}
         </Helmet>
         {children}
       </Wrapper>
