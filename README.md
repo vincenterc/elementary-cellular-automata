@@ -1,6 +1,6 @@
 # elementary-cellular-automaton
 
-Implementation of [elementary-cellular-automaton][].
+The implementation of [elementary-cellular-automaton][].
 
 live demo: https://vincenterc.github.io/elementary-cellular-automaton/
 
