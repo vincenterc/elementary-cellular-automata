@@ -33,7 +33,7 @@ class HomePage extends React.Component {
         <P5Wrapper
           sketch={elementaryCASketch}
           caRule={elementaryCARule}
-          setElementaryCAStateToRedux={setElementaryCAState}
+          setStateToRedux={setElementaryCAState}
           ref={elementaryCAP5Wrapper =>
             (this.elementaryCAP5Wrapper = elementaryCAP5Wrapper)
           }

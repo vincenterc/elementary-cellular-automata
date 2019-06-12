@@ -4,12 +4,11 @@ export default function sketch(p) {
   let ca
   let caRule
   let caRuleBackup
-  let setElementaryCAStateToRedux
+  let setStateToRedux
 
   p.setSketchProps = props => {
     if (props.caRule !== undefined) caRule = validateCARule(props.caRule)
-    if (props.setElementaryCAStateToRedux)
-      setElementaryCAStateToRedux = props.setElementaryCAStateToRedux
+    if (props.setStateToRedux) setStateToRedux = props.setStateToRedux
   }
 
   p.refreshSketch = caRule => {
@@ -17,7 +16,7 @@ export default function sketch(p) {
     ca.resetProps(p, caRule)
     caRule = ca.rule
     caRuleBackup = ca.rule
-    setElementaryCAStateToRedux({ rule: ca.rule })
+    setStateToRedux({ rule: ca.rule })
   }
 
   p.play = () => {
