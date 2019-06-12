@@ -5,7 +5,7 @@ import actionCreators from '../action-creators'
 import PageWrapper from '../components/page-wrapper'
 import Controls from '../components/controls'
 import P5Wrapper from '../components/p5-wrapper'
-import elementaryCASketch from '../p5-sketches/elementary-cellular-automata'
+import elementaryCASketch from '../p5-sketches/elementary-cellular-automaton'
 
 class HomePage extends React.Component {
   componentDidMount() {
