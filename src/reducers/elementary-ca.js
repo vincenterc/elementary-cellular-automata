@@ -2,8 +2,8 @@ import { SET_ELEMENTARY_CA_STATE } from './action-types'
 
 const initialState = {
   rule: '',
+  playing: false,
   refreshSketch: () => {},
-  playing: true,
   play: () => {},
   pause: () => {},
 }

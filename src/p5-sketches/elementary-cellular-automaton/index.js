@@ -39,6 +39,7 @@ export default function sketch(p) {
     p.createCanvas(p.windowWidth, p.windowHeight)
     p.frameRate(15)
     p.background(255)
+    p.noLoop()
 
     ca = new CA(p)
     caRule = ca.rule
