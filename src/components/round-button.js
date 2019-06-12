@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Play, Pause } from './icons'
 
-class PlayStopButton extends React.Component {
+class RoundButton extends React.Component {
   render() {
-    let { extraCss = '', playing = true, onClick = () => {} } = this.props
+    let { extraCss = '', onClick = () => {}, children } = this.props
 
     return (
       <Wrapper extraCss={extraCss} onClick={onClick}>
-        {playing ? <Pause size={20} /> : <Play size={20} />}
+        {children}
       </Wrapper>
     )
   }
@@ -25,4 +24,4 @@ const Wrapper = styled.div`
   ${props => props.extraCss}
 `
 
-export default PlayStopButton
+export default RoundButton

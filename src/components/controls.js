@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import actionCreators from '../action-creators'
-import RefreshButton from './refresh-button'
-import PlayPauseButton from './play-pause-button'
+import * as Icons from './icons'
+import RoundButton from './round-button'
 import RuleInput from './rule-input'
 
 class Controls extends React.Component {
@@ -12,15 +12,24 @@ class Controls extends React.Component {
 
     return (
       <Wrapper extraCss={extraCss}>
-        <RefreshButton
+        <RoundButton
           extraCss={`margin-right: 5px;`}
           onClick={this.onClickRefreshButton}
-        />
-        <PlayPauseButton
+        >
+          <Icons.Refresh size={20} />
+        </RoundButton>
+
+        <RoundButton
           extraCss={`margin-right: 5px;`}
-          playing={elementaryCAPlaying}
           onClick={this.onClickPlayPauseButton}
-        />
+        >
+          {elementaryCAPlaying ? (
+            <Icons.Pause size={20} />
+          ) : (
+            <Icons.Play size={20} />
+          )}
+        </RoundButton>
+
         <RuleInput
           min="0"
           max="255"
