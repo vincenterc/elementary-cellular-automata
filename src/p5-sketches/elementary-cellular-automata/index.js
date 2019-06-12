@@ -24,11 +24,12 @@ export default function sketch(p) {
       caRuleBackup = caRule
       p.refreshSketch(caRule)
     }
-
+    setStateToRedux({ playing: true })
     p.loop()
   }
 
   p.pause = () => {
+    setStateToRedux({ playing: false })
     p.noLoop()
   }
 

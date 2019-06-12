@@ -53,7 +53,6 @@ class Controls extends React.Component {
       elementaryCAPlaying,
       playElementaryCA,
       pauseElementaryCA,
-      setElementaryCAState,
     } = this.props
 
     if (elementaryCAPlaying) {
@@ -61,7 +60,6 @@ class Controls extends React.Component {
     } else {
       playElementaryCA()
     }
-    setElementaryCAState({ playing: !elementaryCAPlaying })
   }
 
   onChangeRuleInput = e => {
@@ -71,15 +69,10 @@ class Controls extends React.Component {
   }
 
   onKeyPressRuleInput = e => {
-    let {
-      playElementaryCA,
-      setElementaryCAState,
-      elementaryCAPlaying,
-    } = this.props
+    let { playElementaryCA } = this.props
 
     if (e.key === 'Enter') {
       playElementaryCA()
-      setElementaryCAState({ playing: !elementaryCAPlaying })
     }
   }
 }
