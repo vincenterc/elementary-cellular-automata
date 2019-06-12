@@ -11,7 +11,9 @@ export default function sketch(p) {
     if (props.setStateToRedux) setStateToRedux = props.setStateToRedux
   }
 
-  p.refreshSketch = caRule => {
+  p.customProps = {}
+
+  p.customProps.refreshSketch = caRule => {
     p.background(255)
     ca.resetProps(p, caRule)
     caRule = ca.rule
@@ -19,16 +21,16 @@ export default function sketch(p) {
     setStateToRedux({ rule: ca.rule })
   }
 
-  p.play = () => {
+  p.customProps.play = () => {
     if (caRule !== caRuleBackup) {
       caRuleBackup = caRule
-      p.refreshSketch(caRule)
+      p.customProps.refreshSketch(caRule)
     }
     setStateToRedux({ playing: true })
     p.loop()
   }
 
-  p.pause = () => {
+  p.customProps.pause = () => {
     setStateToRedux({ playing: false })
     p.noLoop()
   }
@@ -41,7 +43,7 @@ export default function sketch(p) {
     ca = new CA(p)
     caRule = ca.rule
     caRuleBackup = ca.rule
-    p.ca = ca
+    p.customProps.rule = ca.rule
   }
 
   p.draw = function() {
@@ -49,7 +51,7 @@ export default function sketch(p) {
     if (ca.generation < Math.floor(p.height / ca.w)) {
       ca.generate()
     } else {
-      p.refreshSketch()
+      p.customProps.refreshSketch()
     }
   }
 

@@ -8,16 +8,6 @@ import P5Wrapper from '../components/p5-wrapper'
 import elementaryCASketch from '../p5-sketches/elementary-cellular-automaton'
 
 class HomePage extends React.Component {
-  componentDidMount() {
-    let { setElementaryCAState } = this.props
-    setElementaryCAState({
-      rule: this.elementaryCAP5Wrapper.p5Instance.ca.rule,
-      refreshSketch: this.elementaryCAP5Wrapper.p5Instance.refreshSketch,
-      play: this.elementaryCAP5Wrapper.p5Instance.play,
-      pause: this.elementaryCAP5Wrapper.p5Instance.pause,
-    })
-  }
-
   render() {
     let { elementaryCARule, setElementaryCAState } = this.props
 
@@ -34,12 +24,19 @@ class HomePage extends React.Component {
           sketch={elementaryCASketch}
           caRule={elementaryCARule}
           setStateToRedux={setElementaryCAState}
+          exposeSketchCustomProps={this.handleExposeSketchCustomProps}
           ref={elementaryCAP5Wrapper =>
             (this.elementaryCAP5Wrapper = elementaryCAP5Wrapper)
           }
         />
       </Wrapper>
     )
+  }
+
+  handleExposeSketchCustomProps = props => {
+    let { setElementaryCAState } = this.props
+
+    setElementaryCAState(props)
   }
 }
 
